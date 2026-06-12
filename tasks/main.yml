@@ -1,0 +1,17 @@
+---
+# tasks file for php
+- name: add repository
+  apt_repository:
+    repo: ppa:ondrej/php
+    state: present
+- name: PHP installation
+  apt:
+    name: '{{ item }}'
+    state: present
+    update_cache: yes
+  loop:
+      - php8.4 
+      - php8.4-cli 
+      - php8.4-common
+      - php8.4-bcmath
+      - php8.4-curl
